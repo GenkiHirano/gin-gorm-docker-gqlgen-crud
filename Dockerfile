@@ -3,7 +3,6 @@ RUN mkdir /go/src/app
 WORKDIR /go/src/app
 ADD . /go/src/app
 RUN apk update && apk add git
-# go.sumも追加する
-COPY go.mod ./
+COPY go.mod go.sum ./
 RUN go mod download
 CMD ["go", "run", "main.go"]
