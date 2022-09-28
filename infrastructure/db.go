@@ -32,3 +32,11 @@ func newDB(d *DB) *DB {
 	d.Connection = db
 	return d
 }
+
+func (db *DB) Begin() *gorm.DB {
+    return db.Connection.Begin()
+}
+
+func (db *DB) Connect() *gorm.DB {
+    return db.Connection
+}
