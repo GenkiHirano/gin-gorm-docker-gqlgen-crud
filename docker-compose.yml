@@ -9,8 +9,13 @@ services:
       - seccomp:unconfined
     depends_on:
       - db
+    environment:
+      MYSQL_HOST: dockerMySQL
+      MYSQL_DATABASE: gin_gorm_docker_gqlgen_crud_database
+      MYSQL_USER: user
+      MYSQL_PASSWORD: password
   db:
-    container_name: db
+    container_name: dockerMySQL # db
     image: mysql:8.0.27
     environment:
       MYSQL_DATABASE: gin_gorm_docker_gqlgen_crud_database
