@@ -2,7 +2,7 @@ version: "3"
 services:
   app:
     build: .
-    tty: true
+    command: tail -f /dev/null
     volumes:
       - ./gorm:/go/src/work
     ports:
