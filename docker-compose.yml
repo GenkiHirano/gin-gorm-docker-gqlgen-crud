@@ -1,25 +1,30 @@
 version: "3"
 services:
   app:
-    container_name: gin_gorm_docker_gqlgen_crud
     build: .
+    tty: true
+    volumes:
+      - ./gorm:/go/src/work
     ports:
-      - "8080:8080"
-    security_opt:
-      - seccomp:unconfined
-    depends_on:
-      - db
-    environment:
-      MYSQL_HOST: dockerMySQL
-      MYSQL_DATABASE: gin_gorm_docker_gqlgen_crud_database
-      MYSQL_USER: user
-      MYSQL_PASSWORD: password
+      - 3000:3000
+
   db:
-    container_name: dockerMySQL # db
-    image: mysql:8.0.27
+    container_name: db
+    image: mysql:8.0
+    volumes:
+      - gorm_data:/var/lib/mysql
+      - ./logs:/var/log/mysql
+      - ./db/my.cnf:/etc/mysql/conf.d/my.cnf
     environment:
-      MYSQL_DATABASE: gin_gorm_docker_gqlgen_crud_database
-      MYSQL_USER: user
-      MYSQL_PASSWORD: password
+      - MYSQL_DATABASE=${DB_NAME}
+      - MYSQL_USER=${DB_USER}
+      - MYSQL_PASSWORD=${DB_PASS}
+      - MYSQL_ROOT_PASSWORD=${DB_PASS}
     ports:
-      - "3306:3306"
+      - ${DB_PORT}:3306
+
+networks:
+  default:
+
+volumes:
+  gorm_data:
