@@ -11,10 +11,10 @@ import (
 
 func NewDB() *gorm.DB {
 	dsn := dbConfig()
+	db, err := gorm.Open(mysql.Open(dsn))
 
-	db, err := gorm.Open(mysql.Open(dsn), &gorm.Config{})
 	if err != nil {
-		panic(err.Error())
+		panic("failed to connect database")
 	}
 
 	return db
@@ -24,7 +24,7 @@ func dbConfig() string {
 	loadEnv()
 	user := os.Getenv("DB_USER")
 	pass := os.Getenv("DB_PASS")
-	host := "tcp(db:3306)"
+	host := "tcp(127.0.0.1:3306)"
 	dbName := os.Getenv("DB_NAME")
 
 	dsn := user + ":" + pass + "@" + host + "/" + dbName
@@ -35,6 +35,6 @@ func dbConfig() string {
 func loadEnv() {
 	err := godotenv.Load(".env")
 	if err != nil {
-		fmt.Printf("読み込みに失敗しました: %v", err)
+		fmt.Printf("Failed to read environment variables: %v", err)
 	}
 }
