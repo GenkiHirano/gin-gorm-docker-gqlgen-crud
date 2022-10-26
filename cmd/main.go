@@ -7,8 +7,5 @@ import (
 
 func main() {
 	db := infra.NewDB()
-	// defer db.Close()
-
-	db.AutoMigrate(&model.User{})
 	db.Create(&model.TestUsers)
 }
