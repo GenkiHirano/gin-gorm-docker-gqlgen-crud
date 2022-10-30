@@ -30,7 +30,7 @@ func main() {
 	r.POST("/query", graphqlHandler())
 	r.GET("/", playgroundHandler())
 
-	db := infra.NewDB()
+	db := infra.OpenDB()
 	infra.SeedTodo(db)
 	defer infra.CloseDB(db)
 
