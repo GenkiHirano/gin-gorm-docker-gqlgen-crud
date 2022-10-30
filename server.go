@@ -6,7 +6,6 @@ import (
 	"github.com/GenkiHirano/gin-gorm-docker-gqlgen-crud/graph"
 	"github.com/GenkiHirano/gin-gorm-docker-gqlgen-crud/graph/generated"
 	"github.com/GenkiHirano/gin-gorm-docker-gqlgen-crud/infra"
-	"github.com/GenkiHirano/gin-gorm-docker-gqlgen-crud/model"
 	"github.com/gin-gonic/gin"
 )
 
@@ -31,6 +30,6 @@ func main() {
 	r.POST("/query", graphqlHandler())
 	r.GET("/", playgroundHandler())
 	db := infra.NewDB()
-	db.Create(&model.TestUsers)
+	infra.CloseDB(db)
 	r.Run()
 }
