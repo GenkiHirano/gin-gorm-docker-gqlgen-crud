@@ -16,8 +16,7 @@ func NewDB() *gorm.DB {
 		panic("failed to connect database")
 	}
 
-	// TODO: model.Todoも追加
-	db.AutoMigrate(model.User{})
+	db.AutoMigrate(model.Todo{})
 
 	return db
 }
@@ -29,5 +28,9 @@ func CloseDB(db *gorm.DB) {
 		fmt.Println(err)
 	}
 
-    defer sqlDB.Close()
+	sqlDB.Close()
+}
+
+func SeedTodo(db *gorm.DB) {
+	db.Create(model.GetSeedTodo())
 }

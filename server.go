@@ -29,7 +29,10 @@ func main() {
 	r := gin.Default()
 	r.POST("/query", graphqlHandler())
 	r.GET("/", playgroundHandler())
+
 	db := infra.NewDB()
-	infra.CloseDB(db)
+	infra.SeedTodo(db)
+	defer infra.CloseDB(db)
+
 	r.Run()
 }

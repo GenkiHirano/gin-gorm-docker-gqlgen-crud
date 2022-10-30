@@ -9,20 +9,11 @@ import (
 
 	"github.com/GenkiHirano/gin-gorm-docker-gqlgen-crud/graph/generated"
 	"github.com/GenkiHirano/gin-gorm-docker-gqlgen-crud/graph/model"
-	"github.com/google/uuid"
 )
 
 // CreateTodo is the resolver for the createTodo field.
 func (r *mutationResolver) CreateTodo(ctx context.Context, input model.NewTodo) (*model.Todo, error) {
-	newID := uuid.NewString()
-
-	todo := &model.Todo{
-		ID:     newID,
-		Text:   input.Text,
-	}
-
-	r.todos = append(r.todos, todo)
-	return todo, nil
+	panic(fmt.Errorf("not implemented: CreateTodo - createTodo"))
 }
 
 // Todos is the resolver for the todos field.
