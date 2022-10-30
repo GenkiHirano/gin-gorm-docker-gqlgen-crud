@@ -1,3 +1,11 @@
+# app
 server:
-	docker-compose up -d
 	go run server.go
+
+# Docker
+up:
+	docker-compose up
+stop:
+	docker-compose stop
+down:
+	docker-compose down
