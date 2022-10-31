@@ -3,9 +3,9 @@ package main
 import (
 	"github.com/99designs/gqlgen/graphql/handler"
 	"github.com/99designs/gqlgen/graphql/playground"
+	"github.com/GenkiHirano/go-gin-gqlgen-gorm-docker-template/db"
 	"github.com/GenkiHirano/go-gin-gqlgen-gorm-docker-template/graph"
 	"github.com/GenkiHirano/go-gin-gqlgen-gorm-docker-template/graph/generated"
-	"github.com/GenkiHirano/go-gin-gqlgen-gorm-docker-template/infra"
 	"github.com/gin-gonic/gin"
 )
 
@@ -30,9 +30,9 @@ func main() {
 	r.POST("/query", graphqlHandler())
 	r.GET("/", playgroundHandler())
 
-	db := infra.OpenDB()
-	infra.SeedTodo(db)
-	defer infra.CloseDB(db)
+	gormDB := db.OpenDB()
+	db.SeedTodo(gormDB)
+	defer db.CloseDB(gormDB)
 
 	r.Run()
 }
