@@ -3,7 +3,7 @@ package infra
 import (
 	"fmt"
 
-	"github.com/GenkiHirano/gin-gorm-docker-gqlgen-crud/graph/model"
+	"github.com/GenkiHirano/go-gin-gqlgen-gorm-docker-template/graph/model"
 	"gorm.io/driver/mysql"
 	"gorm.io/gorm"
 )

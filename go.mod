@@ -1,4 +1,4 @@
-module github.com/GenkiHirano/gin-gorm-docker-gqlgen-crud
+module github.com/GenkiHirano/go-gin-gqlgen-gorm-docker-template
 
 go 1.19
 

@@ -3,9 +3,9 @@ package main
 import (
 	"github.com/99designs/gqlgen/graphql/handler"
 	"github.com/99designs/gqlgen/graphql/playground"
-	"github.com/GenkiHirano/gin-gorm-docker-gqlgen-crud/graph"
-	"github.com/GenkiHirano/gin-gorm-docker-gqlgen-crud/graph/generated"
-	"github.com/GenkiHirano/gin-gorm-docker-gqlgen-crud/infra"
+	"github.com/GenkiHirano/go-gin-gqlgen-gorm-docker-template/graph"
+	"github.com/GenkiHirano/go-gin-gqlgen-gorm-docker-template/graph/generated"
+	"github.com/GenkiHirano/go-gin-gqlgen-gorm-docker-template/infra"
 	"github.com/gin-gonic/gin"
 )
 

@@ -13,7 +13,7 @@ import (
 
 	"github.com/99designs/gqlgen/graphql"
 	"github.com/99designs/gqlgen/graphql/introspection"
-	"github.com/GenkiHirano/gin-gorm-docker-gqlgen-crud/graph/model"
+	"github.com/GenkiHirano/go-gin-gqlgen-gorm-docker-template/graph/model"
 	gqlparser "github.com/vektah/gqlparser/v2"
 	"github.com/vektah/gqlparser/v2/ast"
 )

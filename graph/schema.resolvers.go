@@ -7,8 +7,8 @@ import (
 	"context"
 	"fmt"
 
-	"github.com/GenkiHirano/gin-gorm-docker-gqlgen-crud/graph/generated"
-	"github.com/GenkiHirano/gin-gorm-docker-gqlgen-crud/graph/model"
+	"github.com/GenkiHirano/go-gin-gqlgen-gorm-docker-template/graph/generated"
+	"github.com/GenkiHirano/go-gin-gqlgen-gorm-docker-template/graph/model"
 )
 
 // CreateTodo is the resolver for the createTodo field.
